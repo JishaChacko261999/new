@@ -1,0 +1,183 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>  
+<head>  
+<meta name="viewport" content="width=device-width, initial-scale=1">  
+<style>  
+body{  
+  font-family: Calibri, Helvetica, sans-serif;  
+  background-color: pink;  
+}  
+.container {  
+    padding: 50px;  
+  background-color: lightblue;  
+}  
+  
+input[type=text], input[type=password], textarea {  
+  width: 100%;  
+  padding: 15px;  
+  margin: 5px 0 22px 0;  
+  display: inline-block;  
+  border: none;  
+  background: #f1f1f1;  
+}  
+input[type=text]:focus, input[type=password]:focus {  
+  background-color: orange;  
+  outline: none;  
+}  
+ div {  
+            padding: 10px 0;  
+         }  
+hr {  
+  border: 1px solid #f1f1f1;  
+  margin-bottom: 25px;  
+}  
+.registerbtn {  
+  background-color: #4CAF50;  
+  color: white;  
+  padding: 16px 20px;  
+  margin: 8px 0;  
+  border: none;  
+  cursor: pointer;  
+  width: 100%;  
+  opacity: 0.9;  
+}  
+.registerbtn:hover {  
+  opacity: 1;  
+}  
+</style>  
+</head>  
+<body>
+<form>
+  <div class="container">
+  <center>  <h1>Application Form</h1> </center>
+  <hr>
+  <label> Firstname </label>
+<input type="text" name="name" placeholder= "name" size="15" required />
+<label> DOB: </label>
+<input type="date" name="bdate" placeholder="birth date" size="15" required /> <br>
+<label>Age: </label>
+<input type="text" name="age" placeholder="age" size="15"required />
+<div>
+<div>
+<label>
+Gender :
+</label><br>
+<input type="radio" value="Male" name="gender" checked > Male
+<input type="radio" value="Female" name="gender"> Female
+<input type="radio" value="Other" name="gender"> Other
+
+</div>
+<div>
+<label>Phone </label>
+<input type="text" name="phone" placeholder= "phone" size="15" required />
+<label>Email </label>
+<input type="text" name="eamil" placeholder="email" size="15" required />
+<label>Address </label>
+<input type="text" name="address" placeholder="Address" size="15"required />
+</div>
+<!-- <div>
+<label>
+Course :
+</label>
+
+<select>
+<option value="Course">Course</option>
+<option value="BCA">BCA</option>
+<option value="BBA">BBA</option>
+<option value="B.Tech">B.Tech</option>
+<option value="MBA">MBA</option>
+<option value="MCA">MCA</option>
+<option value="M.Tech">M.Tech</option>
+</select>
+</div>  -->
+<div class="container">
+<div class="f-group">
+  Districts &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <select name="district" id="district" placeholder="Select Districts" onchange="populate(this.id,'branch')">
+                    <option value="1" selected="selected">Alappuzha</option>
+                    <option value="2" selected="selected">Ernakulam</option>
+                    <option value="3" selected="selected">Idukki</option>
+                    <option value="4" selected="selected">Kannur</option>
+                    <option value="5" selected="selected">Kasaragod</option>
+                    <option value="6" selected="selected">Kollam</option>
+                    <option value="7" selected="selected">Kottayam</option>
+                    <option value="8" selected="selected">Kozhikode</option>
+                    <option value="9" selected="selected">Malappuram</option>
+                    <option value="10" selected="selected">Palakkad</option>
+                    <option value="11" selected="selected">Pathanamthitta</option>
+                    <option value="12" selected="selected">Thiruvananthapuram</option>
+                    <option value="13" selected="selected">Thrissur</option>
+                    <option value="14" selected="selected">Wayanad</option>
+                    <option value="" selected="selected">Please select District</option>
+                    </select>
+    </div>
+<!-- <div>
+<label>
+Gender :
+</label><br>
+<input type="radio" value="Male" name="gender" checked > Male
+<input type="radio" value="Female" name="gender"> Female   <br><br>
+  materials &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<select name="account_type" id="account_type">
+                    <option value="" selected="selected">debit card</option>
+                    <option value="" selected="selected">credit card</option>
+
+                  <option value="" selected="selected">Check book</option>
+  </select>
+<input type="radio" value="Other" name="gender"> Other
+
+</div> -->
+<div class="f-group">
+  Branch &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <select name="branch" id="branch">
+
+    <option value="" selected="selected">Please select Branch</option>
+  </select>
+    </div>
+    </div>
+  <br><br>
+      Account Type &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<select name="account_type" id="account_type">
+                    <option value="" selected="selected">Savings Account</option>
+                    <option value="" selected="selected">Current Account</option>
+
+                    <option value="" selected="selected">Please select Account Type</option>
+  </select>
+  <br><br>
+  Materials Provided &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="checkbox" name="materials_provide"><label>Note Book</label>
+    <input type="checkbox" name="statemen"><label>Debit Card</label>
+    <input type="checkbox" name="stateme"><label>Credit Card</label>
+    <input type="checkbox" name="statement"><label>Check Book</label>  <br><br>
+  <br><br>
+   <button> <a class="btn btn-info" href= "{% url 'msg' %}">Submit</a></button>
+
+    <button><a class="btn btn-warning" href= "{% url 'logout' %}">Logout</a></button>
+
+
+<!--  <div class="btn-block">-->
+<!--          <button type="submit" href="{% url 'msg' %}">SUBMIT</button><button type="submit" href= "{% url 'logout' %}">logout</button>-->
+<!--        </div>-->
+
+<!-- <label>
+Phone :
+</label>
+<input type="text" name="country code" placeholder="Country Code"  value="+91" size="2"/>
+<input type="text" name="phone" placeholder="phone no." size="10"/ required>
+Current Address :
+<textarea cols="80" rows="5" placeholder="Current Address" value="address" required>
+</textarea>
+ <label for="email"><b>Email</b></label>
+ <input type="text" placeholder="Enter Email" name="email" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <label for="psw-repeat"><b>Re-type Password</b></label>
+    <input type="password" placeholder="Retype Password" name="psw-repeat" required>
+    <button type="submit" class="registerbtn">Register</button>  -->
+
+</form>
+<script src="{% static 'js/form.js' %}"></script>
+
+</body>  
+</html>  

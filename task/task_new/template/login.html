@@ -1,0 +1,25 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    </style>
+</head>
+<body bgcolor="aqua">
+<center>
+<form action="" method="post">
+  {% csrf_token %}
+    <h1>Login Form</h1><br><br>
+
+   <input type="text" name="username" placeholder="Username"><br><br>
+    <input type="password" name="password" placeholder="Enter your password"><br><br>
+    <input type="submit">
+    <center>Don't Have an Account? Click here to <a href="http://127.0.0.1:8000/reg/" >Register</a></center>
+
+
+</center>
+</form>
+
+</body>
+</html>
